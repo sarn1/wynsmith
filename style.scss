@@ -1,0 +1,341 @@
+/*
+Theme Name: Wynsmith
+Description: Custom theme for Wynsmith
+Author: Webvolution LLC
+Author URI: http://www.webvolutionchicago.com
+Version: 2.0
+*/
+
+
+/*
+===============
+config
+=============== */
+$dark-blue: 			#000033;
+$light-blue:			#3399cc;
+$gold:					#cc9933;
+$max-width:				1190px;
+$font-size:				16px;
+$line-height:			20px;
+$font-size-sm:			14px;
+$line-height-sm:		16px;
+$font-color:			#ffffff;
+
+
+@mixin inline-block {
+  display:-moz-inline-stack;
+  display:inline-block;
+  zoom:1;
+  *display:inline;
+}
+
+@mixin gradient-bg {
+  background: #f8efe0;
+  background: -moz-linear-gradient(top, #f8efe0 0%, #d5a951 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f8efe0), color-stop(100%, #d5a951));
+  background: -webkit-linear-gradient(top, #f8efe0 0%, #d5a951 100%);
+  background: -o-linear-gradient(top, #f8efe0 0%, #d5a951 100%);
+  background: -ms-linear-gradient(top, #f8efe0 0%, #d5a951 100%);
+  background: linear-gradient(top, #f8efe0 0%, #d5a951 100%);
+}
+
+/*
+===============
+foundation tweaks
+=============== */
+.row {
+  max-width: 100% !important;
+}
+
+p {
+  font-size: $font-size !important;
+  line-height: $line-height !important;
+  margin-bottom: .75em !important;
+}
+
+/*
+===============
+main styles
+=============== */
+body {
+  background-color: #101f40;
+  color: $font-color;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+a {
+  color:$light-blue;
+  text-decoration:none;
+}
+
+h1 {
+  font-size:32px;
+  line-height: 34px;
+  color: $gold;
+}
+
+h2 {
+  font-size: 20px;
+  line-height: 22px;
+  color: $gold;
+}
+
+
+img {
+  border:none;
+}
+
+input[type=text], input[type=email] {
+  height: 30px;
+  max-width: 260px;
+}
+
+input[type=submit] {
+  background-color: $gold;
+  border:none;
+  color: $dark-blue;
+  @include gradient-bg;
+  padding:7px 15px;
+  border-radius: 5px;
+}
+
+textarea {
+  max-width: 265px;
+  max-height: 100px;
+}
+
+ul {
+  margin-bottom: 5px;
+}
+
+
+#content_body, header, footer {
+  max-width: $max-width;
+  border: thin solid #FFFFFF;
+  margin: auto;
+}
+
+#header_bg {
+  background-color: $dark-blue;
+  padding-bottom: 10px;
+
+  header {
+	ul {
+	  list-style: none;
+	  float:right;
+	  margin:0;
+	  padding:0;
+
+	  li {
+		@include inline-block;
+	  }
+	}
+
+	h1 {
+	  color:$font-color;
+	  font-size: $font-size-sm;
+	  line-height: $line-height-sm;
+	  text-align:right;
+	  width:100%;
+	  @include inline-block;
+
+	  a {
+		font-weight:bold;
+	  }
+	}
+  }
+}
+
+section {
+  padding-bottom: 10px;
+}
+
+#footer_bg {
+  background-color: $dark-blue;
+  padding: 10px 0;
+
+  footer {
+	text-align:center;
+	font-size: $font-size-sm;
+	line-height: $line-height-sm;
+
+  	.copyright, .copyright a {
+	  margin-top: 35px;
+	  font-size: 12px !important;
+	  line-height: 14px !important;
+	  color: #666;
+	}
+
+	.widget {
+	  text-align:left;
+
+	  li, p {
+		font-size: $font-size-sm !important;
+		line-height: $line-height-sm !important;
+	  }
+
+	  h2 {
+		text-transform: uppercase;
+	  }
+	}
+  }
+}
+
+/*
+===============
+menu style
+https://perishablepress.com/css-dropdown-menu-wordpress/
+=============== */
+#cssmenu,
+#cssmenu ul,
+#cssmenu li,
+#cssmenu a {
+  border: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+#cssmenu {
+  height: 30px;
+  display: block;
+  padding: 0;
+  margin: 75px 0 0 0;
+  border: 1px solid;
+  border-radius: 5px;
+  width: auto;
+  border-color:$dark-blue;
+}
+#cssmenu,
+#cssmenu > ul > li > ul > li a:hover {
+  @include gradient-bg;
+}
+#cssmenu > ul {
+  list-style: inside none;
+  padding: 0;
+  margin: 0;
+}
+#cssmenu > ul > li {
+  list-style: inside none;
+  padding: 0;
+  margin: 0;
+  float: left;
+  display: block;
+  position: relative;
+}
+#cssmenu > ul > li > a {
+  outline: none;
+  display: block;
+  position: relative;
+  padding: 7px 18px 12px 18px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  color: $dark-blue;
+  text-transform: uppercase;
+}
+#cssmenu > ul > li > a:hover {
+  color: $light-blue;
+}
+
+
+#cssmenu ul li.has-sub:hover > a {
+  z-index: 999;
+}
+#cssmenu ul li.has-sub:hover > ul,
+#cssmenu ul li.has-sub:hover > div {
+  display: block;
+}
+#cssmenu ul li.has-sub > a:hover {
+
+}
+#cssmenu ul li > ul,
+#cssmenu ul li > div {
+  display: none;
+  width: auto;
+  position: absolute;
+  top: 30px;
+  padding: 10px 0;
+  background: #d5a951;
+  border-radius: 0 0 5px 5px;
+  z-index: 999;
+}
+#cssmenu ul li > ul {
+  width: 200px;
+}
+#cssmenu ul li > ul li {
+  display: block;
+  list-style: inside none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+#cssmenu ul li > ul li a {
+  outline: none;
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+  color: $dark-blue;
+  text-decoration: none;
+  font-size: $font-size-sm;
+  line-height: $line-height-sm;
+}
+#cssmenu ul ul a:hover {
+  color: $light-blue;
+  font-weight:bold;
+}
+
+#cssmenu .current-menu-parent>a, #cssmenu .current-menu-item a {
+  color: $light-blue !important;
+}
+
+.columns {
+  border: thin solid #9e0c0f;
+}
+
+/*
+===============
+half-width template
+=============== */
+body.page-template-template-half-width img.attachment-post-thumbnail {
+  -webkit-box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.67);
+  -moz-box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.67);
+  box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.67);
+}
+
+
+/*
+===============
+contact forms
+=============== */
+.wpcf7 {
+  br {
+	font-size:0;
+	margin:0;
+	padding:0;
+	display:none;
+  }
+
+  label {
+	color: $font-color;
+  }
+
+  .col1 {
+	@include inline-block;
+	margin-right: 10px;
+  }
+
+  .col2 {
+	@include inline-block;
+  }
+
+}

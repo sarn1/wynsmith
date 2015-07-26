@@ -1,13 +1,14 @@
 <?php get_header(); ?>
+
 <div id="content_body">
-<section>
-<?php if (have_posts()) :
+	<section>
+	<?php if (have_posts()) :
 		while (have_posts()) : the_post(); ?>
 
 		<h1><?php the_title(); ?></h1>
 		<article><?php the_content(); ?></article>
 
-        <?php get_sidebar(); ?>
+		<?php get_sidebar(); ?>
 
 	<?php endwhile;
 	elseif (is_404()) : ?>
@@ -18,6 +19,13 @@
 		</article>
 
 	<?php endif; ?>
-</section>
+
+
+	<div class="row">
+		<div class="large-6 columns">1</div>
+		<div class="large-6 columns">1</div>
+	</div>
+
+	</section>
 </div>
 <?php get_footer(); ?>

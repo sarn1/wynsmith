@@ -1,42 +1,322 @@
-﻿/*
+/*
 Theme Name: Wynsmith
 Description: Custom theme for Wynsmith
 Author: Webvolution LLC
 Author URI: http://www.webvolutionchicago.com
 Version: 2.0
 */
+/*
+===============
+config
+=============== */
+/*
+===============
+foundation tweaks
+=============== */
+/* line 46, style.scss */
+.row {
+  max-width: 100% !important; }
+
+/* line 50, style.scss */
+p {
+  font-size: 16px !important;
+  line-height: 20px !important;
+  margin-bottom: .75em !important; }
 
 /*
-www.font2web.com
-http://everythingfonts.com/ttf-to-otf
-http://www.freefontconverter.com/
-@font-face {
-	font-family: 'HelveticaNeue';
-	src: url('includes/fonts/HelveticaNeue.eot');
-	src: local('â˜º'), url('includes/fonts/HelveticaNeue.woff') format('woff'), url('includes/fonts/HelveticaNeue.ttf') format('truetype');
-}
+===============
+main styles
+=============== */
+/* line 60, style.scss */
+body {
+  background-color: #101f40;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 20px; }
 
-@font-face {
-	font-family: 'HelveticaNeueMedCond';
-	src: url('includes/fonts/HelveticaNeueLTStd-BlkCn.eot');
-	src: local('â˜º'), url('includes/fonts/HelveticaNeueLTStd-BlkCn.woff') format('woff'), url('includes/fonts/HelveticaNeueLTStd-BlkCn.ttf') format('truetype'), url('includes/fonts/HelveticaNeueLTStd-BlkCn.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'HelveticaNeueBoldCond';
-	src: url('/includes/fonts/HelveticaNeueLTStd-BdCn.eot');
-	src: local('â˜º'), url('includes/fonts/HelveticaNeueLTStd-BdCn.woff') format('woff'), url('includes/fonts/HelveticaNeueLTStd-BdCn.ttf') format('truetype'), url('includes/fonts/HelveticaNeueLTStd-BdCn.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-*/
-
+/* line 68, style.scss */
 a {
-	text-decoration:none;	
-}
+  color: #3399cc;
+  text-decoration: none; }
 
+/* line 73, style.scss */
+h1 {
+  font-size: 32px;
+  line-height: 34px;
+  color: #cc9933; }
+
+/* line 79, style.scss */
+h2 {
+  font-size: 20px;
+  line-height: 22px;
+  color: #cc9933; }
+
+/* line 86, style.scss */
 img {
-	border:none;	
-}
+  border: none; }
+
+/* line 90, style.scss */
+input[type=text], input[type=email] {
+  height: 30px;
+  max-width: 260px; }
+
+/* line 95, style.scss */
+input[type=submit] {
+  background-color: #cc9933;
+  border: none;
+  color: #000033;
+  background: #f8efe0;
+  background: -moz-linear-gradient(top, #f8efe0 0%, #d5a951 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f8efe0), color-stop(100%, #d5a951));
+  background: -webkit-linear-gradient(top, #f8efe0 0%, #d5a951 100%);
+  background: -o-linear-gradient(top, #f8efe0 0%, #d5a951 100%);
+  background: -ms-linear-gradient(top, #f8efe0 0%, #d5a951 100%);
+  background: linear-gradient(top, #f8efe0 0%, #d5a951 100%);
+  padding: 7px 15px;
+  border-radius: 5px; }
+
+/* line 104, style.scss */
+textarea {
+  max-width: 265px;
+  max-height: 100px; }
+
+/* line 109, style.scss */
+ul {
+  margin-bottom: 5px; }
+
+/* line 114, style.scss */
+#content_body, header, footer {
+  max-width: 1190px;
+  border: thin solid #FFFFFF;
+  margin: auto; }
+
+/* line 120, style.scss */
+#header_bg {
+  background-color: #000033;
+  padding-bottom: 10px; }
+  /* line 125, style.scss */
+  #header_bg header ul {
+    list-style: none;
+    float: right;
+    margin: 0;
+    padding: 0; }
+    /* line 131, style.scss */
+    #header_bg header ul li {
+      display: -moz-inline-stack;
+      display: inline-block;
+      zoom: 1;
+      *display: inline; }
+  /* line 136, style.scss */
+  #header_bg header h1 {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: right;
+    width: 100%;
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline; }
+    /* line 144, style.scss */
+    #header_bg header h1 a {
+      font-weight: bold; }
+
+/* line 151, style.scss */
+section {
+  padding-bottom: 10px; }
+
+/* line 155, style.scss */
+#footer_bg {
+  background-color: #000033;
+  padding: 10px 0; }
+  /* line 159, style.scss */
+  #footer_bg footer {
+    text-align: center;
+    font-size: 14px;
+    line-height: 16px; }
+    /* line 164, style.scss */
+    #footer_bg footer .copyright, #footer_bg footer .copyright a {
+      margin-top: 35px;
+      font-size: 12px !important;
+      line-height: 14px !important;
+      color: #666; }
+    /* line 171, style.scss */
+    #footer_bg footer .widget {
+      text-align: left; }
+      /* line 174, style.scss */
+      #footer_bg footer .widget li, #footer_bg footer .widget p {
+        font-size: 14px !important;
+        line-height: 16px !important; }
+      /* line 179, style.scss */
+      #footer_bg footer .widget h2 {
+        text-transform: uppercase; }
+
+/*
+===============
+menu style
+https://perishablepress.com/css-dropdown-menu-wordpress/
+=============== */
+/* line 191, style.scss */
+#cssmenu,
+#cssmenu ul,
+#cssmenu li,
+#cssmenu a {
+  border: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+
+/* line 204, style.scss */
+#cssmenu {
+  height: 30px;
+  display: block;
+  padding: 0;
+  margin: 75px 0 0 0;
+  border: 1px solid;
+  border-radius: 5px;
+  width: auto;
+  border-color: #000033; }
+
+/* line 214, style.scss */
+#cssmenu,
+#cssmenu > ul > li > ul > li a:hover {
+  background: #f8efe0;
+  background: -moz-linear-gradient(top, #f8efe0 0%, #d5a951 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f8efe0), color-stop(100%, #d5a951));
+  background: -webkit-linear-gradient(top, #f8efe0 0%, #d5a951 100%);
+  background: -o-linear-gradient(top, #f8efe0 0%, #d5a951 100%);
+  background: -ms-linear-gradient(top, #f8efe0 0%, #d5a951 100%);
+  background: linear-gradient(top, #f8efe0 0%, #d5a951 100%); }
+
+/* line 218, style.scss */
+#cssmenu > ul {
+  list-style: inside none;
+  padding: 0;
+  margin: 0; }
+
+/* line 223, style.scss */
+#cssmenu > ul > li {
+  list-style: inside none;
+  padding: 0;
+  margin: 0;
+  float: left;
+  display: block;
+  position: relative; }
+
+/* line 231, style.scss */
+#cssmenu > ul > li > a {
+  outline: none;
+  display: block;
+  position: relative;
+  padding: 7px 18px 12px 18px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000033;
+  text-transform: uppercase; }
+
+/* line 244, style.scss */
+#cssmenu > ul > li > a:hover {
+  color: #3399cc; }
+
+/* line 249, style.scss */
+#cssmenu ul li.has-sub:hover > a {
+  z-index: 999; }
+
+/* line 252, style.scss */
+#cssmenu ul li.has-sub:hover > ul,
+#cssmenu ul li.has-sub:hover > div {
+  display: block; }
+
+/* line 259, style.scss */
+#cssmenu ul li > ul,
+#cssmenu ul li > div {
+  display: none;
+  width: auto;
+  position: absolute;
+  top: 30px;
+  padding: 10px 0;
+  background: #d5a951;
+  border-radius: 0 0 5px 5px;
+  z-index: 999; }
+
+/* line 270, style.scss */
+#cssmenu ul li > ul {
+  width: 200px; }
+
+/* line 273, style.scss */
+#cssmenu ul li > ul li {
+  display: block;
+  list-style: inside none;
+  padding: 0;
+  margin: 0;
+  position: relative; }
+
+/* line 280, style.scss */
+#cssmenu ul li > ul li a {
+  outline: none;
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+  color: #000033;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 16px; }
+
+/* line 292, style.scss */
+#cssmenu ul ul a:hover {
+  color: #3399cc;
+  font-weight: bold; }
+
+/* line 297, style.scss */
+#cssmenu .current-menu-parent > a, #cssmenu .current-menu-item a {
+  color: #3399cc !important; }
+
+/* line 301, style.scss */
+.columns {
+  border: thin solid #9e0c0f; }
+
+/*
+===============
+half-width template
+=============== */
+/* line 309, style.scss */
+body.page-template-template-half-width img.attachment-post-thumbnail {
+  -webkit-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.67);
+  -moz-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.67);
+  box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.67); }
+
+/*
+===============
+contact forms
+=============== */
+/* line 321, style.scss */
+.wpcf7 br {
+  font-size: 0;
+  margin: 0;
+  padding: 0;
+  display: none; }
+/* line 328, style.scss */
+.wpcf7 label {
+  color: #ffffff; }
+/* line 332, style.scss */
+.wpcf7 .col1 {
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  margin-right: 10px; }
+/* line 337, style.scss */
+.wpcf7 .col2 {
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline; }

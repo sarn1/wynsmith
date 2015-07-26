@@ -1,22 +1,25 @@
 <?php
 
 //nav menus
+
 $navmenus = array(
 	'Main Menu'
 );
 
+
 //widget areas
+
 $widgetareas = array(
-	'Sidebar', 'Footer'
+	'Sidebar', 'Footer', 'Footer_Column_1','Footer_Column_2','Footer_Column_3', 'Footer_Column_4'
 );
 
- 
 
 //enable theme features
+
 add_theme_support('menus'); //enable menus
 add_theme_support('post-thumbnails'); //enable post thumbnails
 add_theme_support( 'title-tag' ); //enable title
- 
+
 
 //register nav menus
 
@@ -35,7 +38,6 @@ function jet4_register_nav_menus() {
 		register_nav_menus($navmenus_proc);
 	}
 }
-
 
 
 //register widget areas
@@ -66,15 +68,7 @@ add_action('init','jet4_register_theme_script');
 function jet4_register_theme_script() {
 	if ( !is_admin() ) {
 		wp_register_script('jet4_theme_script',	get_bloginfo('template_directory') . '/includes/scripts.min.js',	array('jquery'));
-		wp_enqueue_script('jet4_theme_script');	
-		
-		/* optional for JQuery backwards compatibility
-		wp_register_script('jet4_theme_script5',	get_bloginfo('template_directory') . '/includes/jquery-migrate-1.1.0.min.js' );
-		wp_enqueue_script('jet4_theme_script5');		
-		*/		
-			
-		//wp_register_script('jet4_theme_script7',	get_bloginfo('template_directory') . '/includes/bootstrap/js/bootstrap.min.js' );
-		//wp_enqueue_script('jet4_theme_script7');	
+		wp_enqueue_script('jet4_theme_script');
 	}
 }
 
@@ -82,56 +76,83 @@ function jet4_register_theme_script() {
 add_action( 'wp_enqueue_scripts', 'prefix_add_my_stylesheet' );
 function prefix_add_my_stylesheet() {
 	
-        // Respects SSL, Style.css is relative to the current file
-        wp_register_style( 's452-normalize-style', get_bloginfo('template_directory').'/includes/theme-core.min.css' , __FILE__ );
-        wp_enqueue_style( 's452-normalize-style' );
-		
-		//wp_register_style( 's452-bootstrap', get_bloginfo('template_directory').'/includes/bootstrap/css/bootstrap.min.css' , __FILE__ );
-        //wp_enqueue_style( 's452-bootstrap' );
+	// Respects SSL, Style.css is relative to the current file
+	wp_register_style( 's452-normalize-style', get_bloginfo('template_directory').'/includes/theme-core.min.css' , __FILE__ );
+	wp_enqueue_style( 's452-normalize-style' );
 
-        wp_register_style( 's452-style', get_bloginfo('template_directory').'/style.css' , __FILE__ );
-        wp_enqueue_style( 's452-style' );
+	wp_register_style( 's452-foundation', get_bloginfo('template_directory').'/includes/foundation/foundation.min.css' , __FILE__ );
+	wp_enqueue_style( 's452-foundation' );
 
+	wp_register_style( 's452-style', get_bloginfo('template_directory').'/style.css' , __FILE__ );
+	wp_enqueue_style( 's452-style' );
 
     }
-	
 
 
-/*	TINYMCE
-//http://www.wpexplorer.com/wordpress-tinymce-tweaks/
+//menu walker for custom styling
 
+class CSS_Menu_Walker extends Walker {
 
-// Add custom Fonts to the Fonts list
-if ( ! function_exists( 'wpex_mce_google_fonts_array' ) ) {
-    function wpex_mce_google_fonts_array( $initArray ) {
-        $initArray['font_formats'] = 'Lato=Lato;Andale Mono=andale mono,times;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;Georgia=georgia,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings,zapf dingbats';
-            return $initArray;
-    }
+	var $db_fields = array('parent' => 'menu_item_parent', 'id' => 'db_id');
+
+	function start_lvl(&$output, $depth = 0, $args = array()) {
+		$indent = str_repeat("\t", $depth);
+		$output .= "\n$indent<ul>\n";
+	}
+
+	function end_lvl(&$output, $depth = 0, $args = array()) {
+		$indent = str_repeat("\t", $depth);
+		$output .= "$indent</ul>\n";
+	}
+
+	function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+
+		global $wp_query;
+		$indent = ($depth) ? str_repeat("\t", $depth) : '';
+		$class_names = $value = '';
+		$classes = empty($item->classes) ? array() : (array) $item->classes;
+
+		/* Add active class */
+		if (in_array('current-menu-item', $classes)) {
+			$classes[] = 'active';
+			unset($classes['current-menu-item']);
+		}
+
+		/* Check for children */
+		$children = get_posts(array('post_type' => 'nav_menu_item', 'nopaging' => true, 'numberposts' => 1, 'meta_key' => '_menu_item_menu_item_parent', 'meta_value' => $item->ID));
+		if (!empty($children)) {
+			$classes[] = 'has-sub';
+		}
+
+		$class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
+		$class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
+
+		$id = apply_filters('nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args);
+		$id = $id ? ' id="' . esc_attr($id) . '"' : '';
+
+		$output .= $indent . '<li' . $id . $value . $class_names .'>';
+
+		$attributes  = ! empty($item->attr_title) ? ' title="'  . esc_attr($item->attr_title) .'"' : '';
+		$attributes .= ! empty($item->target)     ? ' target="' . esc_attr($item->target    ) .'"' : '';
+		$attributes .= ! empty($item->xfn)        ? ' rel="'    . esc_attr($item->xfn       ) .'"' : '';
+		$attributes .= ! empty($item->url)        ? ' href="'   . esc_attr($item->url       ) .'"' : '';
+
+		$item_output = $args->before;
+		$item_output .= '<a'. $attributes .'><span>';
+		$item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
+		$item_output .= '</span></a>';
+		$item_output .= $args->after;
+
+		$output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
+	}
+
+	function end_el(&$output, $item, $depth = 0, $args = array()) {
+		$output .= "</li>\n";
+	}
 }
-add_filter( 'tiny_mce_before_init', 'wpex_mce_google_fonts_array' );
 
-// Add Google Scripts for use with the editor
-if ( ! function_exists( 'wpex_mce_google_fonts_styles' ) ) {
 
-    function wpex_mce_google_fonts_styles() {
-
-      $font_url = 'http://fonts.googleapis.com/css?family=Lato:300,400,700';
-
-           add_editor_style( str_replace( ',', '%2C', $font_url ) );
-
-    }
-
-}
-add_action( 'init', 'wpex_mce_google_fonts_styles' );
-
-// Enable font size & font family selects in the editor
-if ( ! function_exists( 'wpex_mce_buttons' ) ) {
-    function wpex_mce_buttons( $buttons ) {
-        array_unshift( $buttons, 'fontselect' ); // Add Font Select
-        array_unshift( $buttons, 'fontsizeselect' ); // Add Font Size Select
-        return $buttons;
-    }
-}
+/*	TINYMCE */
 
 
 function my_mce4_options( $init ) {
@@ -143,41 +164,15 @@ $default_colours = '
     "FF99CC", "Pink",         "FFCC99", "Peach",        "FFFF99", "Light yellow", "CCFFCC", "Pale green",   "CCFFFF", "Pale cyan",    "99CCFF", "Light sky blue", "CC99FF", "Plum",         "FFFFFF", "White"
 ';
 $custom_colours = '
-	"cc9966", "Link Color"
-	,"330000", "Dark Brown Color"
+	"000033", "Dark Blue"
+	,"3399cc", "Light Blue"
+	,"cc9933", "Gold"
 ';
 $init['textcolor_map'] = '['.$default_colours.','.$custom_colours.']'; // build colour grid default+custom colors
 $init['textcolor_rows'] = 6; // enable 6th row for custom colours in grid
 return $init;
 }
 add_filter('tiny_mce_before_init', 'my_mce4_options');
-*/
-
-/* BOOTSTRAP MODS 
-//auto add img-responsive to all images added via the wp post
-//http://stackoverflow.com/questions/20473004/how-to-add-automatic-class-in-image-for-wordpress-post
-function add_responsive_class($content){
-
-        $content = mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8");
-        $document = new DOMDocument();
-        libxml_use_internal_errors(true);
-        $document->loadHTML(utf8_decode($content));
-
-        $imgs = $document->getElementsByTagName('img');
-        foreach ($imgs as $img) {           
-           $img->setAttribute('class','img-responsive');
-        }
-
-        $html = $document->saveHTML();
-        return $html;   
-}
-add_filter        ('the_content', 'add_responsive_class');
-
-
-require_once('includes/bootstrap/wp_bootstrap_navwalker.php');
- 
-*/
-
 
 
 /* BLOG FUNCTIONALITY
