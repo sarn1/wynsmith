@@ -1,20 +1,18 @@
 <?php wp_footer(); ?>
 
-<div id="footer_bg">
 <footer>
 
     <div class="row">
-        <div class="large-3 columns"><?php dynamic_sidebar('Footer_Column_1'); ?></div>
-        <div class="large-3 columns"><?php dynamic_sidebar('Footer_Column_2'); ?></div>
-        <div class="large-3 columns"><?php dynamic_sidebar('Footer_Column_3'); ?></div>
-        <div class="large-3 columns"><?php dynamic_sidebar('Footer_Column_4'); ?></div>
+        <div class="medium-3 columns"><?php dynamic_sidebar('Footer_Column_1'); ?></div>
+        <div class="medium-3 columns"><?php dynamic_sidebar('Footer_Column_2'); ?></div>
+        <div class="medium-3 columns"><?php dynamic_sidebar('Footer_Column_3'); ?></div>
+        <div class="medium-3 columns"><?php dynamic_sidebar('Footer_Column_4'); ?></div>
     </div>
 
 
     <?php dynamic_sidebar('Footer'); ?>
     <p class="copyright">&copy; Copyright <?php echo date("Y"); ?> Wynsmith Realty.  All rights reserved. <a href="http://www.wcre8design.com" target="_blank">Designed by We Cre8 Design</a>.</p>
 </footer>
-</div>
 
 <script src="<?php echo get_stylesheet_directory_uri() ?>/includes/foundation/foundation.min.js"></script>
 <script>

@@ -13,11 +13,11 @@ config
 ===============
 foundation tweaks
 =============== */
-/* line 46, style.scss */
+/* line 50, style.scss */
 .row {
   max-width: 100% !important; }
 
-/* line 50, style.scss */
+/* line 54, style.scss */
 p {
   font-size: 16px !important;
   line-height: 20px !important;
@@ -27,41 +27,41 @@ p {
 ===============
 main styles
 =============== */
-/* line 60, style.scss */
+/* line 64, style.scss */
 body {
-  background-color: #101f40;
+  background-color: #000033;
   color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 20px; }
 
-/* line 68, style.scss */
-a {
+/* line 72, style.scss */
+a, a:hover, a:focus {
   color: #3399cc;
   text-decoration: none; }
 
-/* line 73, style.scss */
+/* line 77, style.scss */
 h1 {
   font-size: 32px;
   line-height: 34px;
   color: #cc9933; }
 
-/* line 79, style.scss */
+/* line 83, style.scss */
 h2 {
   font-size: 20px;
   line-height: 22px;
   color: #cc9933; }
 
-/* line 86, style.scss */
+/* line 90, style.scss */
 img {
   border: none; }
 
-/* line 90, style.scss */
+/* line 94, style.scss */
 input[type=text], input[type=email] {
   height: 30px;
   max-width: 260px; }
 
-/* line 95, style.scss */
+/* line 99, style.scss */
 input[type=submit] {
   background-color: #cc9933;
   border: none;
@@ -76,39 +76,43 @@ input[type=submit] {
   padding: 7px 15px;
   border-radius: 5px; }
 
-/* line 104, style.scss */
+/* line 108, style.scss */
 textarea {
   max-width: 265px;
   max-height: 100px; }
 
-/* line 109, style.scss */
+/* line 113, style.scss */
 ul {
   margin-bottom: 5px; }
 
-/* line 114, style.scss */
+/* line 118, style.scss */
 #content_body, header, footer {
   max-width: 1190px;
   border: thin solid #FFFFFF;
   margin: auto; }
 
-/* line 120, style.scss */
-#header_bg {
-  background-color: #000033;
+/* line 124, style.scss */
+#content_body > h1 {
+  /* page header for custom templates */
+  margin-left: 15px; }
+
+/* line 130, style.scss */
+header {
   padding-bottom: 10px; }
-  /* line 125, style.scss */
-  #header_bg header ul {
+  /* line 133, style.scss */
+  header ul {
     list-style: none;
     float: right;
     margin: 0;
     padding: 0; }
-    /* line 131, style.scss */
-    #header_bg header ul li {
+    /* line 139, style.scss */
+    header ul li {
       display: -moz-inline-stack;
       display: inline-block;
       zoom: 1;
       *display: inline; }
-  /* line 136, style.scss */
-  #header_bg header h1 {
+  /* line 144, style.scss */
+  header h1 {
     color: #ffffff;
     font-size: 14px;
     line-height: 16px;
@@ -117,47 +121,43 @@ ul {
     display: -moz-inline-stack;
     display: inline-block;
     zoom: 1;
-    *display: inline; }
-    /* line 144, style.scss */
-    #header_bg header h1 a {
-      font-weight: bold; }
+    *display: inline;
+    font-weight: bold; }
 
-/* line 151, style.scss */
+/* line 158, style.scss */
 section {
-  padding-bottom: 10px; }
+  padding: 35px 0;
+  background-color: #101f40; }
 
-/* line 155, style.scss */
-#footer_bg {
-  background-color: #000033;
-  padding: 10px 0; }
-  /* line 159, style.scss */
-  #footer_bg footer {
-    text-align: center;
-    font-size: 14px;
-    line-height: 16px; }
-    /* line 164, style.scss */
-    #footer_bg footer .copyright, #footer_bg footer .copyright a {
-      margin-top: 35px;
-      font-size: 12px !important;
-      line-height: 14px !important;
-      color: #666; }
-    /* line 171, style.scss */
-    #footer_bg footer .widget {
-      text-align: left; }
-      /* line 174, style.scss */
-      #footer_bg footer .widget li, #footer_bg footer .widget p {
-        font-size: 14px !important;
-        line-height: 16px !important; }
-      /* line 179, style.scss */
-      #footer_bg footer .widget h2 {
-        text-transform: uppercase; }
+/* line 163, style.scss */
+footer {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 16px; }
+  /* line 169, style.scss */
+  footer .copyright, footer .copyright a {
+    margin-top: 60px;
+    font-size: 12px !important;
+    line-height: 14px !important;
+    color: #666; }
+  /* line 176, style.scss */
+  footer .widget {
+    text-align: left; }
+    /* line 179, style.scss */
+    footer .widget li, footer .widget p {
+      font-size: 14px !important;
+      line-height: 16px !important; }
+    /* line 184, style.scss */
+    footer .widget h2 {
+      text-transform: uppercase; }
 
 /*
 ===============
 menu style
 https://perishablepress.com/css-dropdown-menu-wordpress/
 =============== */
-/* line 191, style.scss */
+/* line 195, style.scss */
 #cssmenu,
 #cssmenu ul,
 #cssmenu li,
@@ -170,7 +170,7 @@ https://perishablepress.com/css-dropdown-menu-wordpress/
   -moz-box-sizing: content-box;
   box-sizing: content-box; }
 
-/* line 204, style.scss */
+/* line 208, style.scss */
 #cssmenu {
   height: 30px;
   display: block;
@@ -181,7 +181,7 @@ https://perishablepress.com/css-dropdown-menu-wordpress/
   width: auto;
   border-color: #000033; }
 
-/* line 214, style.scss */
+/* line 218, style.scss */
 #cssmenu,
 #cssmenu > ul > li > ul > li a:hover {
   background: #f8efe0;
@@ -192,13 +192,13 @@ https://perishablepress.com/css-dropdown-menu-wordpress/
   background: -ms-linear-gradient(top, #f8efe0 0%, #d5a951 100%);
   background: linear-gradient(top, #f8efe0 0%, #d5a951 100%); }
 
-/* line 218, style.scss */
+/* line 222, style.scss */
 #cssmenu > ul {
   list-style: inside none;
   padding: 0;
   margin: 0; }
 
-/* line 223, style.scss */
+/* line 227, style.scss */
 #cssmenu > ul > li {
   list-style: inside none;
   padding: 0;
@@ -207,7 +207,7 @@ https://perishablepress.com/css-dropdown-menu-wordpress/
   display: block;
   position: relative; }
 
-/* line 231, style.scss */
+/* line 235, style.scss */
 #cssmenu > ul > li > a {
   outline: none;
   display: block;
@@ -221,20 +221,20 @@ https://perishablepress.com/css-dropdown-menu-wordpress/
   color: #000033;
   text-transform: uppercase; }
 
-/* line 244, style.scss */
+/* line 248, style.scss */
 #cssmenu > ul > li > a:hover {
   color: #3399cc; }
 
-/* line 249, style.scss */
+/* line 253, style.scss */
 #cssmenu ul li.has-sub:hover > a {
   z-index: 999; }
 
-/* line 252, style.scss */
+/* line 256, style.scss */
 #cssmenu ul li.has-sub:hover > ul,
 #cssmenu ul li.has-sub:hover > div {
   display: block; }
 
-/* line 259, style.scss */
+/* line 263, style.scss */
 #cssmenu ul li > ul,
 #cssmenu ul li > div {
   display: none;
@@ -246,11 +246,11 @@ https://perishablepress.com/css-dropdown-menu-wordpress/
   border-radius: 0 0 5px 5px;
   z-index: 999; }
 
-/* line 270, style.scss */
+/* line 274, style.scss */
 #cssmenu ul li > ul {
   width: 200px; }
 
-/* line 273, style.scss */
+/* line 277, style.scss */
 #cssmenu ul li > ul li {
   display: block;
   list-style: inside none;
@@ -258,7 +258,7 @@ https://perishablepress.com/css-dropdown-menu-wordpress/
   margin: 0;
   position: relative; }
 
-/* line 280, style.scss */
+/* line 284, style.scss */
 #cssmenu ul li > ul li a {
   outline: none;
   display: block;
@@ -271,24 +271,46 @@ https://perishablepress.com/css-dropdown-menu-wordpress/
   font-size: 14px;
   line-height: 16px; }
 
-/* line 292, style.scss */
+/* line 296, style.scss */
 #cssmenu ul ul a:hover {
   color: #3399cc;
   font-weight: bold; }
 
-/* line 297, style.scss */
+/* line 301, style.scss */
 #cssmenu .current-menu-parent > a, #cssmenu .current-menu-item a {
   color: #3399cc !important; }
 
-/* line 301, style.scss */
+/* line 305, style.scss */
 .columns {
   border: thin solid #9e0c0f; }
 
 /*
 ===============
+home page
+=============== */
+/* line 314, style.scss */
+body.home h1 {
+  margin-top: 15px; }
+/* line 318, style.scss */
+body.home aside {
+  text-align: center; }
+  /* line 321, style.scss */
+  body.home aside p {
+    font-size: 14px !important;
+    line-height: 16px !important; }
+  /* line 326, style.scss */
+  body.home aside h2 {
+    font-size: 18px;
+    line-height: 20px; }
+  /* line 331, style.scss */
+  body.home aside .widget_custom_post_widget {
+    margin-bottom: 30px; }
+
+/*
+===============
 half-width template
 =============== */
-/* line 309, style.scss */
+/* line 342, style.scss */
 body.page-template-template-half-width img.attachment-post-thumbnail {
   -webkit-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.67);
   -moz-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.67);
@@ -298,25 +320,166 @@ body.page-template-template-half-width img.attachment-post-thumbnail {
 ===============
 contact forms
 =============== */
-/* line 321, style.scss */
+/* line 354, style.scss */
 .wpcf7 br {
   font-size: 0;
   margin: 0;
   padding: 0;
   display: none; }
-/* line 328, style.scss */
+/* line 361, style.scss */
 .wpcf7 label {
   color: #ffffff; }
-/* line 332, style.scss */
+/* line 365, style.scss */
 .wpcf7 .col1 {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
   *display: inline;
   margin-right: 10px; }
-/* line 337, style.scss */
+/* line 370, style.scss */
 .wpcf7 .col2 {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
   *display: inline; }
+
+/*
+===============
+executive page
+=============== */
+/* line 382, style.scss */
+body.post-type-archive-executive section article h1, body.post-type-archive-executive section article h2 {
+  font-size: 18px;
+  line-height: 20px;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline; }
+/* line 388, style.scss */
+body.post-type-archive-executive section article h2 {
+  color: #ffffff;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 20px; }
+/* line 395, style.scss */
+body.post-type-archive-executive section article img {
+  margin-bottom: 5px; }
+/* line 399, style.scss */
+body.post-type-archive-executive section article .email {
+  font-size: 14px;
+  line-height: 16px;
+  font-style: italic; }
+
+/*
+===============
+blog
+=============== */
+/* line 411, style.scss */
+div#content_body.blog article {
+  /* universal styles */
+  margin-bottom: 30px; }
+  /* line 415, style.scss */
+  div#content_body.blog article h1, div#content_body.blog article h2 {
+    font-size: 20px;
+    line-height: 22px;
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline; }
+  /* line 421, style.scss */
+  div#content_body.blog article h2 {
+    color: #ffffff;
+    font-style: italic; }
+
+/* line 427, style.scss */
+body.blog {
+  /* home */ }
+  /* line 429, style.scss */
+  body.blog .page-link {
+    margin-top: 30px; }
+  /* line 434, style.scss */
+  body.blog article a.more-link {
+    font-size: 14px;
+    line-height: 16px;
+    font-style: italic; }
+
+/* line 442, style.scss */
+body.single {
+  /* single */ }
+  /* line 445, style.scss */
+  body.single article h2 {
+    color: #ffffff;
+    font-style: italic; }
+  /* line 450, style.scss */
+  body.single article h3 {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 10px; }
+  /* line 456, style.scss */
+  body.single article .tags {
+    color: #cc9933; }
+  /* line 460, style.scss */
+  body.single article .comments {
+    margin-top: 30px; }
+  /* line 464, style.scss */
+  body.single article label {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 20px; }
+  /* line 470, style.scss */
+  body.single article .form-allowed-tags {
+    display: none; }
+  /* line 476, style.scss */
+  body.single article #comments ol.commentlist {
+    margin-left: 0;
+    /*  border: thin solid #9e0c0f; */ }
+    /* line 480, style.scss */
+    body.single article #comments ol.commentlist li.comment {
+      /* border: 1px solid $gold; */
+      list-style-type: none;
+      margin-bottom: 15px; }
+      /* line 485, style.scss */
+      body.single article #comments ol.commentlist li.comment .vcard {
+        border: none;
+        margin: 0;
+        padding: 0; }
+        /* line 490, style.scss */
+        body.single article #comments ol.commentlist li.comment .vcard small {
+          font-size: 14px;
+          line-height: 16px;
+          margin-top: 0px;
+          display: block; }
+      /* line 498, style.scss */
+      body.single article #comments ol.commentlist li.comment .reply {
+        margin-top: -10px; }
+        /* line 501, style.scss */
+        body.single article #comments ol.commentlist li.comment .reply .comment-reply-link {
+          font-size: 14px;
+          line-height: 16px; }
+
+/* line 513, style.scss */
+body.single ul.menu li:nth-child(7) a, body.archive ul.menu li:nth-child(7) a {
+  /* highlight blog for custom blog pages */
+  color: #3399cc !important; }
+
+/* line 518, style.scss */
+aside.blog_sidebar * {
+  font-size: 16px;
+  line-height: 20px; }
+  /* line 522, style.scss */
+  aside.blog_sidebar * ul {
+    list-style: none;
+    margin: 0; }
+  /* line 527, style.scss */
+  aside.blog_sidebar * h2 {
+    margin-bottom: 0; }
+
+/* line 533, style.scss */
+aside.blog_sidebar .widget {
+  margin-bottom: 20px; }
+/* line 537, style.scss */
+aside.blog_sidebar .post-date {
+  font-style: italic; }
+  /* line 540, style.scss */
+  aside.blog_sidebar .post-date:before {
+    content: "- "; }

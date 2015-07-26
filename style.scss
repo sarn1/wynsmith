@@ -17,6 +17,10 @@ $gold:					#cc9933;
 $max-width:				1190px;
 $font-size:				16px;
 $line-height:			20px;
+$font-size-lg:          20px;
+$line-height-lg:        22px;
+$font-size-md:          18px;
+$line-height-md:        20px;
 $font-size-sm:			14px;
 $line-height-sm:		16px;
 $font-color:			#ffffff;
@@ -58,14 +62,14 @@ p {
 main styles
 =============== */
 body {
-  background-color: #101f40;
+  background-color: $dark-blue;
   color: $font-color;
   font-family:Arial, Helvetica, sans-serif;
   font-size: $font-size;
   line-height: $line-height;
 }
 
-a {
+a, a:hover, a:focus {
   color:$light-blue;
   text-decoration:none;
 }
@@ -77,8 +81,8 @@ h1 {
 }
 
 h2 {
-  font-size: 20px;
-  line-height: 22px;
+  font-size: $font-size-lg;
+  line-height: $line-height-lg;
   color: $gold;
 }
 
@@ -117,69 +121,69 @@ ul {
   margin: auto;
 }
 
-#header_bg {
-  background-color: $dark-blue;
+  #content_body > h1 {
+  /* page header for custom templates */
+    margin-left: 15px;
+  }
+
+
+header {
   padding-bottom: 10px;
 
-  header {
-	ul {
-	  list-style: none;
-	  float:right;
-	  margin:0;
-	  padding:0;
+  ul {
+    list-style: none;
+    float:right;
+    margin:0;
+    padding:0;
 
-	  li {
-		@include inline-block;
-	  }
-	}
+    li {
+      @include inline-block;
+    }
+  }
 
-	h1 {
-	  color:$font-color;
-	  font-size: $font-size-sm;
-	  line-height: $line-height-sm;
-	  text-align:right;
-	  width:100%;
-	  @include inline-block;
+  h1 {
+    color:$font-color;
+    font-size: $font-size-sm;
+    line-height: $line-height-sm;
+    text-align:right;
+    width:100%;
+    @include inline-block;
 
-	  a {
-		font-weight:bold;
-	  }
-	}
+    a {
+    }
+    font-weight:bold;
   }
 }
 
 section {
-  padding-bottom: 10px;
+  padding: 35px 0;
+  background-color: #101f40;
 }
 
-#footer_bg {
-  background-color: $dark-blue;
-  padding: 10px 0;
+footer {
+  padding: 20px 0;
+  text-align:center;
+  font-size: $font-size-sm;
+  line-height: $line-height-sm;
 
-  footer {
-	text-align:center;
-	font-size: $font-size-sm;
-	line-height: $line-height-sm;
+  .copyright, .copyright a {
+    margin-top: 60px;
+    font-size: 12px !important;
+    line-height: 14px !important;
+    color: #666;
+  }
 
-  	.copyright, .copyright a {
-	  margin-top: 35px;
-	  font-size: 12px !important;
-	  line-height: 14px !important;
-	  color: #666;
-	}
+  .widget {
+    text-align:left;
 
-	.widget {
-	  text-align:left;
+    li, p {
+      font-size: $font-size-sm !important;
+      line-height: $line-height-sm !important;
+    }
 
-	  li, p {
-		font-size: $font-size-sm !important;
-		line-height: $line-height-sm !important;
-	  }
-
-	  h2 {
-		text-transform: uppercase;
-	  }
-	}
+    h2 {
+      text-transform: uppercase;
+    }
   }
 }
 
@@ -304,6 +308,35 @@ https://perishablepress.com/css-dropdown-menu-wordpress/
 
 /*
 ===============
+home page
+=============== */
+body.home {
+  h1 {
+    margin-top:15px;
+  }
+
+  aside {
+    text-align:center;
+
+    p {
+      font-size: $font-size-sm !important;
+      line-height: $line-height-sm !important;
+    }
+
+    h2 {
+      font-size: $font-size-md;
+      line-height: $line-height-md;
+    }
+
+    .widget_custom_post_widget {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+
+/*
+===============
 half-width template
 =============== */
 body.page-template-template-half-width img.attachment-post-thumbnail {
@@ -338,4 +371,174 @@ contact forms
 	@include inline-block;
   }
 
+}
+
+/*
+===============
+executive page
+=============== */
+body.post-type-archive-executive {
+  section article {
+     h1, h2 {
+      font-size: $font-size-md;
+      line-height: $line-height-md;
+      @include inline-block;
+    }
+
+      h2 {
+        color: $font-color;
+        font-style: italic;
+        font-size: $font-size;
+        line-height: $line-height;
+      }
+
+    img {
+      margin-bottom: 5px;
+    }
+
+    .email {
+      font-size: $font-size-sm;
+      line-height: $line-height-sm;
+      font-style:italic;
+    }
+  }
+}
+
+/*
+===============
+blog
+=============== */
+div#content_body.blog article {
+  /* universal styles */
+  margin-bottom: 30px;
+
+  h1, h2 {
+    font-size: $font-size-lg;
+    line-height: $line-height-lg;
+    @include inline-block;
+  }
+
+    h2 {
+      color: $font-color;
+      font-style: italic;
+    }
+}
+
+body.blog {
+/* home */
+  .page-link {
+    margin-top: 30px;
+  }
+
+  article {
+    a.more-link {
+      font-size: $font-size-sm;
+      line-height: $line-height-sm;
+      font-style: italic;
+    }
+  }
+}
+
+body.single {
+  /* single */
+  article {
+    h2 {
+      color: $font-color;
+      font-style: italic;
+    }
+
+    h3 {
+      font-size: $font-size;
+      line-height: $line-height;
+      margin-bottom: 10px;
+    }
+
+    .tags {
+      color: $gold;
+    }
+
+    .comments {
+      margin-top: 30px;
+    }
+
+    label {
+      color:$font-color;
+      font-size: $font-size;
+      line-height: $line-height;
+    }
+
+    .form-allowed-tags {
+      display:none;
+    }
+
+    //comments area
+    #comments {
+      ol.commentlist {
+        margin-left:0;
+       /*  border: thin solid #9e0c0f; */
+
+        li.comment {
+          /* border: 1px solid $gold; */
+          list-style-type:none;
+          margin-bottom: 15px;
+
+          .vcard {
+            border:none;
+            margin:0;
+            padding:0;
+
+            small {
+              font-size:$font-size-sm;
+              line-height: $line-height-sm;
+              margin-top: 0px;
+              display:block;
+            }
+          }
+
+          .reply {
+            margin-top: -10px;
+
+            .comment-reply-link {
+              font-size: $font-size-sm;
+              line-height: $line-height-sm;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+body.single ul.menu li:nth-child(7) a, body.archive ul.menu li:nth-child(7) a {
+  /* highlight blog for custom blog pages */
+  color: $light-blue !important;
+}
+
+aside.blog_sidebar * {
+  font-size: $font-size;
+  line-height: $line-height;
+
+  ul {
+    list-style:none;
+    margin:0;
+  }
+
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+aside.blog_sidebar {
+  .widget {
+    margin-bottom: 20px;
+  }
+
+  .post-date {
+    font-style: italic;
+
+    &:before {
+      content: "- ";
+    }
+  }
 }

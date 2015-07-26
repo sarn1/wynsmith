@@ -10,7 +10,15 @@ $navmenus = array(
 //widget areas
 
 $widgetareas = array(
-	'Sidebar', 'Footer', 'Footer_Column_1','Footer_Column_2','Footer_Column_3', 'Footer_Column_4'
+	'Sidebar'
+	, 'Footer'
+	, 'Footer_Column_1'
+	, 'Footer_Column_2'
+	, 'Footer_Column_3'
+	, 'Footer_Column_4'
+	, 'Home_Featured_1'
+	, 'Home_Featured_2'
+	, 'Home_Featured_3'
 );
 
 
@@ -175,7 +183,6 @@ return $init;
 add_filter('tiny_mce_before_init', 'my_mce4_options');
 
 
-/* BLOG FUNCTIONALITY
 
 //blog commenting 
 function mw_comments($comment, $args, $depth) { ?> 
@@ -189,7 +196,7 @@ function mw_comments($comment, $args, $depth) { ?>
 			</div>
 			<div class="info">
 				<div class="comment-meta">
-					<a href="<?php the_author_meta( 'user_url'); ?>"><?php printf(__('%s'), get_comment_author_link()) ?></a>
+					<?php printf(__('%s'), get_comment_author_link()) ?>
 				</div>
 				<small class="comment-date"><?php printf(__('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?><?php edit_comment_link(__('(Edit)'),'  ','') ?></small>
 			</div>
@@ -204,20 +211,4 @@ function mw_comments($comment, $args, $depth) { ?>
 				<?php echo comment_reply_link(array('depth' => $depth, 'max_depth' => $args['max_depth'])); ?>
 			 </div>
 		 </div>
-<?php }  
-
-
-//automatically assign categories to blog post - assign all blog post as blog 
-function add_category_automatically1($post_ID) {  
-    global $wpdb;  
-        if(!in_category('bundle')){  
-            $cat = array(1);  
-            wp_set_object_terms($post_ID, $cat, 'category', true);  
-        }  
-}  
-add_action('publish_post', 'add_category_automatically1');  
-
-
-*/
-
-?>
+<?php }

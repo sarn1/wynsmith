@@ -4,9 +4,8 @@
 Template Name: Half-Width
 */
     get_header(); ?>
-
+    <section>
     <div id="content_body">
-        <section>
             <div class="row">
                 <div class="medium-6 columns">
                     <?php
@@ -100,6 +99,6 @@ Template Name: Half-Width
                     <?php endif; ?>
                 </div>
             </div>
-        </section>
     </div>
+</section>
 <?php get_footer(); ?>
