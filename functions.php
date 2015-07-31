@@ -212,3 +212,70 @@ function mw_comments($comment, $args, $depth) { ?>
 			 </div>
 		 </div>
 <?php }
+
+
+/*
+ * get_listings ()
+ * listing_type = chicago, suburban
+ */
+function get_listings ($listing_category, $listing_type = null) {
+
+	global $wpdb;
+	return $wpdb->get_results($wpdb->prepare(
+		"
+		select distinct
+			addr1.meta_value as 'address1'
+			, addr2.meta_value as 'address2'
+			, city.meta_value as 'city'
+			, state.meta_value as 'state'
+			, zip.meta_value as 'zip'
+			, hood.meta_value as 'hood'
+			, price.meta_value as 'price'
+			, bed.meta_value as 'bedroom'
+			, bath.meta_value as 'bathroom'
+			, sq.meta_value as 'sqft'
+			, sold.meta_value as 'is_sold'
+
+			, p.post_name as 'permalink'
+
+			, taxonomy.name as 'taxonomy_name'
+			, taxonomy.term_order as 'order'
+		FROM {$wpdb->postmeta} m
+
+		inner join {$wpdb->posts} p on p.id = m.post_id
+		inner join (select post_id, meta_value from {$wpdb->postmeta} where meta_key = 'wpcf-addresss-1') as addr1 on addr1.post_id = m.post_id
+
+		left join (select post_id, meta_value from {$wpdb->postmeta} where meta_key = 'wpcf-address-2') as addr2 on addr2.post_id = m.post_id
+		left join (select post_id, meta_value from {$wpdb->postmeta} where meta_key = 'wpcf-city') city on city.post_id = m.post_id
+		left join (select post_id, meta_value from {$wpdb->postmeta} where meta_key = 'wpcf-state') as state on state.post_id = m.post_id
+		left join (select post_id, meta_value from {$wpdb->postmeta} where meta_key = 'wpcf-zip') as zip on zip.post_id = m.post_id
+		left join (select post_id, meta_value from {$wpdb->postmeta} where meta_key = 'wpcf-neighboorhood') as hood on hood.post_id = m.post_id
+		left join (select post_id, meta_value from {$wpdb->postmeta} where meta_key = 'wpcf-price') as price on price.post_id = m.post_id
+		left join (select post_id, meta_value from {$wpdb->postmeta} where meta_key = 'wpcf-bedrooms') as bed on bed.post_id = m.post_id
+		left join (select post_id, meta_value from {$wpdb->postmeta} where meta_key = 'wpcf-bathrooms') as bath on bath.post_id = m.post_id
+		left join (select post_id, meta_value from {$wpdb->postmeta} where meta_key = 'wpcf-square-feet') as sq on sq.post_id = m.post_id
+		left join (select post_id, meta_value from {$wpdb->postmeta} where meta_key = 'wpcf-is-sold') as sold on sold.post_id = m.post_id
+
+		inner join (
+			select
+				t.name
+				, t.term_order
+				, tr.object_id
+				, tt.taxonomy
+			from {$wpdb->term_taxonomy} tt
+			inner join {$wpdb->terms} t on tt.term_id = t.term_id
+			inner join {$wpdb->term_relationships} tr on tr.term_taxonomy_id = tt.term_taxonomy_id
+		) as taxonomy on p.id = taxonomy.object_id
+
+
+		where m.post_id in (
+		 select distinct post_id from {$wpdb->postmeta} where meta_key = 'wpcf-listing-type' and meta_value like %s
+		)  and p.post_status = 'publish' and taxonomy.taxonomy like %s
+		order by
+			taxonomy.term_order
+			, hood.meta_value
+			, p.menu_order
+		",'%'.$listing_type.'%', '%'.$listing_category.'%'
+	));
+
+}
