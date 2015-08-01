@@ -94,6 +94,9 @@ img {
 input[type=text], input[type=email] {
   height: 30px;
   max-width: 260px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
 input[type=submit] {
@@ -102,12 +105,17 @@ input[type=submit] {
   color: $dark-blue;
   @include gradient-bg;
   padding:7px 15px;
-  border-radius: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
 textarea {
   max-width: 265px;
   max-height: 100px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
 ul {
@@ -117,7 +125,6 @@ ul {
 
 #content_body, header, footer {
   max-width: $max-width;
-  border: thin solid #FFFFFF;
   margin: auto;
 }
 
@@ -176,13 +183,21 @@ footer {
   .widget {
     text-align:left;
 
+    h2 {
+      text-transform: uppercase;
+    }
+
     li, p {
       font-size: $font-size-sm !important;
       line-height: $line-height-sm !important;
     }
+  }
 
-    h2 {
-      text-transform: uppercase;
+  .footer_column_4 {
+    input[type=email] {
+      max-width: 140px;
+      font-size: 12px;
+      line-height: 12px;
     }
   }
 }
@@ -302,10 +317,6 @@ https://perishablepress.com/css-dropdown-menu-wordpress/
   color: $light-blue !important;
 }
 
-.columns {
-  border: thin solid #9e0c0f;
-}
-
 /*
 ===============
 home page
@@ -326,6 +337,10 @@ body.home {
     h2 {
       font-size: $font-size-md;
       line-height: $line-height-md;
+    }
+
+    img {
+      margin-bottom: 5px;
     }
 
     .widget_custom_post_widget {
@@ -547,3 +562,149 @@ aside.blog_sidebar {
 ===============
 listings
 =============== */
+
+body.post-type-archive ul.menu li:nth-child(7) a {
+  color: $dark-blue !important;
+}
+
+article.listings {
+  h2, h3, h4, h5 {
+    font-size: $font-size;
+    line-height: $line-height;
+  }
+
+  h3 {
+    color: $font-color;
+  }
+
+  h4 {
+    margin-left:5px;
+  }
+
+  h5 {
+    margin-left: 10px;
+  }
+}
+
+/*
+===============
+listing-details
+=============== */
+
+
+body.single-residential ul.menu li:nth-child(7) a, body.single-rental ul.menu li:nth-child(7) a, body.single-commercial ul.menu li:nth-child(7) a {
+  color: $dark-blue !important;
+}
+
+body.single-residential ul.menu>li:nth-child(3)>a, body.single-rental ul.menu>li:nth-child(3)>a, body.single-commercial>ul.menu li:nth-child(3)>a {
+  color: $light-blue !important;
+}
+
+/* sub menu highlighting */
+body.single-residential ul li:nth-child(3) ul li:nth-child(1) a {
+  color: $light-blue !important;
+}
+
+body.single-rental ul li:nth-child(3) ul  li:nth-child(2) a {
+  color: $light-blue !important;
+}
+
+body.single-commercial ul li:nth-child(3) ul li:nth-child(3) a {
+  color: $light-blue !important;
+}
+
+
+.listing-details {
+  h1, h2, h3 {
+    margin-left: 15px;
+  }
+
+    h2 {
+      font-size: $font-size-sm;
+      line-height: $line-height-sm;
+      color:$font-color;
+    }
+
+  h3 {
+    font-size: $font-size;
+    line-height:  $line-height;
+  }
+
+  .address1 span {
+    color: $gold;
+  }
+
+  .hood {
+    text-transform:uppercase;
+  }
+
+  .col1, .col2 {
+    @include inline-block;
+  }
+    .col1 {
+      width: 145px;
+    }
+
+  .price {
+    font-weight:bold;
+    margin-top: 15px;
+  }
+
+  .content {
+    margin-top: 15px;
+  }
+}
+
+/*
+===============
+media queries
+=============== */
+@media screen and (max-width: 1280px) {
+  header {
+    h1 {
+      text-align: center;
+    }
+
+    nav {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    #cssmenu {
+      margin-top: 0;
+    }
+
+    .columns {
+      max-width: 100%;
+      text-align: center;
+    }
+
+    #logo {
+      margin-bottom: 15px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  #social_media_menu {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+
+    li {
+      margin: 5px 15px;
+    }
+  }
+
+  header ul {
+    float:none;
+  }
+
+  footer {
+    .widget {
+      margin-bottom: 25px;
+    }
+  }
+}
+

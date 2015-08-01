@@ -1,5 +1,5 @@
 <?php
 
-dynamic_sidebar('Sidebar'); 
+dynamic_sidebar('Sidebar');
 
 ?>
