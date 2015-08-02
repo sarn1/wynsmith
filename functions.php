@@ -92,7 +92,7 @@ function prefix_add_my_stylesheet()
   wp_register_style('s452-normalize-style', get_bloginfo('template_directory') . '/includes/theme-core.min.css', __FILE__);
   wp_enqueue_style('s452-normalize-style');
 
-  wp_register_style('s452-foundation', get_bloginfo('template_directory') . '/includes/foundation/foundation.min.css', __FILE__);
+  wp_register_style('s452-foundation', get_bloginfo('template_directory') . '/includes/foundation.min.css', __FILE__);
   wp_enqueue_style('s452-foundation');
 
   wp_register_style('s452-style', get_bloginfo('template_directory') . '/style.css', __FILE__);

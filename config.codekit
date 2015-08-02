@@ -110,21 +110,21 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/includes\/foundation\/foundation.min.css": {
+	"\/includes\/foundation.min.css": {
 		"fileType": 16,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/includes\/foundation\/foundation.min.css",
+		"inputAbbreviatedPath": "\/includes\/foundation.min.css",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/includes\/foundation\/foundation.min.js": {
+	"\/includes\/foundation.min.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/includes\/foundation\/foundation.min.js",
-		"outputAbbreviatedPath": "\/includes\/foundation\/min\/foundation.min-min.js",
+		"inputAbbreviatedPath": "\/includes\/foundation.min.js",
+		"outputAbbreviatedPath": "\/includes\/min\/foundation.min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
