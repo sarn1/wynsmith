@@ -20,6 +20,7 @@ $widgetareas = array(
 , 'Home_Featured_2'
 , 'Home_Featured_3'
 , 'Listing_Page_Contact'
+, 'Company_Video'
 );
 
 

@@ -13,10 +13,7 @@ get_header(); ?>
 
         if ($page_id == 28) {
           //company video page
-          ?>
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/nVta7w7y1NI" frameborder="0"
-                  allowfullscreen></iframe>
-          <?php
+          dynamic_sidebar('Company_Video');
         } elseif ($page_id == 18) {
           //mortgage page
           ?>
